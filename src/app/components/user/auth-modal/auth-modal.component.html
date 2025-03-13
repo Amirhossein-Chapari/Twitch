@@ -1,0 +1,109 @@
+<app-modal>
+  <!-- Tabs -->
+  <ul class="flex flex-wrap mb-4">
+    <li class="flex-auto text-center">
+      <a
+        class="block rounded py-3 px-4 transition hover:text-white text-white bg-indigo-400"
+        href="#"
+        >ورود</a
+      >
+    </li>
+    <li class="flex-auto text-center">
+      <a
+        class="block rounded py-3 px-4 transition hover:text-indigo-400"
+        href="#"
+        >ثبت نام</a
+      >
+    </li>
+  </ul>
+
+  <!-- Login Form -->
+  <form>
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">ایمیل</label>
+      <input
+        type="email"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder=" ایمیل"
+      />
+    </div>
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">رمز عبور</label>
+      <input
+        type="password"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder="رمز عبور"
+      />
+    </div>
+    <button
+      type="submit"
+      class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500"
+    >
+      ورود
+    </button>
+  </form>
+  <!-- Registration Form -->
+  <form>
+    <!-- Name -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">نام</label>
+      <input
+        type="text"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder=" نام"
+      />
+    </div>
+    <!-- Email -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">ایمیل</label>
+      <input
+        type="email"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder=" ایمیل"
+      />
+    </div>
+    <!-- Age -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">سن</label>
+      <input
+        type="number"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+      />
+    </div>
+    <!-- Password -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">رمز عبور </label>
+      <input
+        type="password"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder="رمز عبور "
+      />
+    </div>
+    <!-- Confirm Password -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">تکرار رمز عبور</label>
+      <input
+        type="password"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder="تکرار رمز عبور "
+      />
+    </div>
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label class="inline-block mb-2">تلفن </label>
+      <input
+        type="text"
+        class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+        placeholder="شماره تلفن را وارد کنید"
+      />
+    </div>
+    <button
+      type="submit"
+      class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500"
+    >
+      ثبت نام
+    </button>
+  </form>
+</app-modal>
