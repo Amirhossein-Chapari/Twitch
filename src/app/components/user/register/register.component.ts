@@ -37,4 +37,15 @@ export class RegisterComponent {
     const confirmPassword = form.get('confirmPassword')?.value;
     return password && confirmPassword && password !== confirmPassword ? { mismatch: true } : null;
   }
+
+  showAlert: boolean = false;
+  alertMessage: string = ''
+  color: string = ''
+
+  onSubmit() {
+    this.showAlert = true;
+    this.alertMessage = 'لطفا صبر کنید اکانت شما در حال ساخته شدن است';
+    this.color = 'blue'
+  }
+
 }
