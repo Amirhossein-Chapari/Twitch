@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { FormControl, FormGroup, Validators, ValidationErrors, AbstractControl, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '../../../shared/shared.module';
+import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { AuthService } from '../../../services/auth.service';
+import { IUser } from '../../../models/user.model';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +13,8 @@ import { SharedModule } from '../../../shared/shared.module';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-
+  authService = inject(AuthService); 
+  firebaseAuth = inject(Auth)
   inSubmission = false;
 
   registerForm = new FormGroup({
@@ -46,6 +50,8 @@ export class RegisterComponent {
     this.showAlert = true;
     this.alertMessage = 'لطفا صبر کنید اکانت شما در حال ساخته شدن است';
     this.color = 'blue'
+    this.authService.createUser(this.registerForm.value as IUser)
   }
+
 
 }
