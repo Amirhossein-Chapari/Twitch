@@ -7,6 +7,7 @@
 <!-- Name -->
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="mb-3">
+    <label class="inline-block mb-2">نام</label>
     <app-inputs
       [control]="registerForm.controls.name"
       [lable]="'نام'"
@@ -16,6 +17,7 @@
 
   <!-- Email -->
   <div class="mb-3">
+    <label class="inline-block mb-2">ایمیل</label>
     <app-inputs
       [control]="registerForm.controls.email"
       [lable]="'ایمیل'"
@@ -24,6 +26,7 @@
   </div>
   <!-- Age -->
   <div class="mb-3">
+    <label class="inline-block mb-2">سن</label>
     <app-inputs
       [control]="registerForm.controls.age"
       [lable]="'سن'"
@@ -33,6 +36,7 @@
   </div>
   <!-- Password -->
   <div class="mb-3">
+    <label class="inline-block mb-2">رمز عبور</label>
     <app-inputs
       [control]="registerForm.controls.password"
       [lable]="'رمز عبور'"
@@ -42,6 +46,7 @@
   </div>
   <!-- Confirm Password -->
   <div class="mb-3">
+    <label class="inline-block mb-2">تکرار رمز عبور</label>
     <app-inputs
       [control]="registerForm.controls.confirmPassword"
       [lable]="'تکرار رمز عبور'"
@@ -51,6 +56,7 @@
   </div>
   <!-- Phone Number -->
   <div class="mb-3">
+    <label class="inline-block mb-2">شماره تماس</label>
     <app-inputs
       [control]="registerForm.controls.phone"
       [lable]="'شماره تماس'"
@@ -61,7 +67,7 @@
   <button
     type="submit"
     class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition hover:bg-indigo-500 disabled:bg-indigo-400"
-    [disabled]="registerForm.invalid"
+    [disabled]="registerForm.invalid || inSubmission"
   >
     ثبت نام
   </button>

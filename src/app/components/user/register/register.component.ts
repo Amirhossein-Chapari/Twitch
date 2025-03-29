@@ -13,7 +13,7 @@ import { IUser } from '../../../models/user.model';
   styleUrl: './register.component.scss',
 })
 export class RegisterComponent {
-  authService = inject(AuthService); 
+  authService = inject(AuthService);
   firebaseAuth = inject(Auth)
   inSubmission = false;
 
@@ -49,8 +49,21 @@ export class RegisterComponent {
   onSubmit() {
     this.showAlert = true;
     this.alertMessage = 'لطفا صبر کنید اکانت شما در حال ساخته شدن است';
-    this.color = 'blue'
-    this.authService.createUser(this.registerForm.value as IUser)
+    this.color = 'blue';
+    this.inSubmission = true;
+    try {
+      this.authService.createUser(this.registerForm.value as IUser)
+    } catch (error) {
+      this.color = 'red';
+      this.inSubmission = false;
+      this.alertMessage = 'خطا لطفا دوباره امتحان کنید';
+      return;
+    }
+
+    this.color = 'green';
+    this.alertMessage = 'اکانت شما با موفقیت ساخته شد';
+    // this.inSubmission = false;
+    this.registerForm.reset(); 
   }
 
 

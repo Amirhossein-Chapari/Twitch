@@ -1,28 +1,49 @@
 <header id="header" class="bg-secondary">
-    <nav class="container mx-auto flex justify-start items-center py-8 px-4">
-      <!-- App Name -->
-    
+  <nav class="container mx-auto flex justify-start items-center py-8 px-4">
+    <!-- App Name -->
 
-      <div class="flex flex-grow items-center">
-        <!-- Primary Navigation -->
-        <ul class="flex flex-row mt-1">
-          <!-- Navigation Links -->
+    <div class="flex flex-grow items-center">
+      <!-- Primary Navigation -->
+      <ul class="flex flex-row mt-1">
+        @if (!(authService.isAuthenticated | async)) {
           <li>
             <a class="px-2" href="#" (click)="openModal($event)">ورود / ثبت نام</a>
           </li>
+        } @else {
           <li>
             <a class="px-2" href="#">مدیریت</a>
           </li>
           <li>
-            <a class="px-2" href="#">اپلود</a>
+            <a class="px-2" href="#">آپلود</a>
           </li>
           <li>
             <a class="px-2" href="about.html">درباره ما</a>
           </li>
-        </ul>
+          <li>
+            <a class="px-2" href="#" (click)="logout($event)">خروج</a>
+          </li>
+        }
+      </ul>
       
-      </div>
+    </div>
 
-      <a class="text-3xl text-indigo-400 font-bold uppercase mr-4" href="index.html">گیم بین</a>
-    </nav>
-  </header>
+    <a
+      class="text-3xl text-indigo-400 font-bold uppercase mr-4"
+      href="index.html"
+      >Twitch</a
+    >
+
+    <a
+      class="text-3xl text-indigo-400 font-bold uppercase mr-4"
+      href="index.html"
+    >
+      <!-- <img
+        class="col-span-2 max-h-9 w-full object-contain lg:col-span-1"
+        src="/img/logo-no-background.png"
+        alt="Transistor"
+        width="128"
+        height="48"
+      /> -->
+    </a>
+  </nav>
+</header>
