@@ -6,25 +6,26 @@
       <!-- Primary Navigation -->
       <ul class="flex flex-row mt-1">
         @if (!(authService.isAuthenticated | async)) {
-          <li>
-            <a class="px-2" href="#" (click)="openModal($event)">ورود / ثبت نام</a>
-          </li>
+        <li>
+          <a class="px-2" href="#" (click)="openModal($event)"
+            >ورود / ثبت نام</a
+          >
+        </li>
         } @else {
-          <li>
-            <a class="px-2" href="#">مدیریت</a>
-          </li>
-          <li>
-            <a class="px-2" href="#">آپلود</a>
-          </li>
-          <li>
-            <a class="px-2" href="about.html">درباره ما</a>
-          </li>
-          <li>
-            <a class="px-2" href="#" (click)="logout($event)">خروج</a>
-          </li>
+        <li>
+          <a class="px-2" href="#">مدیریت</a>
+        </li>
+        <li>
+          <a class="px-2" href="#">آپلود</a>
+        </li>
+        <li>
+          <a class="px-2" [routerLink]="['about']" routerLinkActive="text-indigo-400">درباره ما</a>
+        </li>
+        <li>
+          <a class="px-2" href="#" (click)="logout($event)">خروج</a>
+        </li>
         }
       </ul>
-      
     </div>
 
     <a
@@ -35,7 +36,7 @@
 
     <a
       class="text-3xl text-indigo-400 font-bold uppercase mr-4"
-      href="index.html"
+      [routerLink]=""
     >
       <!-- <img
         class="col-span-2 max-h-9 w-full object-contain lg:col-span-1"
