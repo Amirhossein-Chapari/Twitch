@@ -11,15 +11,15 @@
             >ورود / ثبت نام</a
           >
         </li>
-        } @else {
-        <li>
-          <a class="px-2" href="#">مدیریت</a>
-        </li>
-        <li>
-          <a class="px-2" href="#">آپلود</a>
-        </li>
         <li>
           <a class="px-2" [routerLink]="['about']" routerLinkActive="text-indigo-400">درباره ما</a>
+        </li>
+        } @else {
+        <li>
+          <a class="px-2" href="#" [routerLink]="['/video/manage']">مدیریت</a>
+        </li>
+        <li>
+          <a class="px-2" [routerLink]="['video/upload']">آپلود</a>
         </li>
         <li>
           <a class="px-2" href="#" (click)="logout($event)">خروج</a>

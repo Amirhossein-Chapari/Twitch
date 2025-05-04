@@ -22,13 +22,17 @@ export class NavComponent {
     this.modalService.toggleModal('auth');
   }
 
-  async logout(event: Event) {
-    event.preventDefault();
+  // async logout(event: Event) {
+  //   event.preventDefault();
 
-    try {
-      await signOut(this.auth);
-    } catch (error) {
-      console.error('Error signing out:', error);
-    }
+  //   try {
+  //     await signOut(this.auth);
+  //   } catch (error) {
+  //     console.error('Error signing out:', error);
+  //   }
+  // }
+
+  logout(event: Event) {
+    this.authService.logout();
   }
 }

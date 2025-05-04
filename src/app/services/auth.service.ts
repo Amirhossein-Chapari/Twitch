@@ -4,6 +4,7 @@ import { Firestore, doc, setDoc } from '@angular/fire/firestore';
 import { IUser } from '../models/user.model';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { map, Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class AuthService {
 
   public isAuthenticated: Observable<boolean>;
 
-  constructor() {
+  constructor( private router: Router) {
     this.isAuthenticated = authState(this.firebaseAuth).pipe(
       map((user) => !!user)
     );
@@ -28,7 +29,7 @@ export class AuthService {
     }
 
     try {
-      // ایجاد حساب کاربری در Firebase Authentication
+    
       const userCred = await createUserWithEmailAndPassword(
         this.firebaseAuth,
         userData.email!,
@@ -51,7 +52,6 @@ export class AuthService {
         phone: userData.phone,
       });
 
-      // به‌روزرسانی نام کاربر در Firebase Authentication
       await updateProfile(userCred.user, {
         displayName: userData.name,
       });
@@ -60,5 +60,13 @@ export class AuthService {
       console.error('Error creating user:', error);
       throw error;
     }
+  }
+
+  async logout(event?: Event) {
+    if (event) {
+      event.preventDefault();
+    }
+    this.firebaseAuth.signOut();
+    this.router.navigateByUrl('/');
   }
 }

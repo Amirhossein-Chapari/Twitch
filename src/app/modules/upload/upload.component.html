@@ -1,0 +1,69 @@
+<!-- Main Content -->
+<section class="container mx-auto my-8 bg-secondary p-6">
+  <div class="rounded relative flex flex-col">
+    <div class="font-bold mb-6">آپلود ویدیو</div>
+    @if (!nextStep) {
+    <!-- Upload Dropbox -->
+    <div
+      app-event-blocker
+      (dragend)="iaDragover = false"
+      (dragover)="iaDragover = true"
+      (dragenter)="iaDragover = true"
+      (dragleave)="iaDragover = false"
+      (mouseleave)="iaDragover = false"
+      (drop)="handleStore($event)"
+      [ngClass]="{ 'bg-indigo-400 border-indigo-400 border-solid': iaDragover }"
+      class="w-full px-10 py-40 rounded text-center cursor-pointer border border-dashed border-gray-400 transition duration-500 hover:text-white hover:bg-indigo-400 hover:border-indigo-400 hover:border-solid text-xl"
+    >
+      <h5>ویدیو خود را اینجا رها کنید (mp4 فقط!)</h5>
+    </div>
+    } @else {
+    <!-- Video Editor -->
+    <div>
+      <!-- Form -->
+      @if (showAlert) {
+      <app-alert [color]="alertColor">
+        <p>{{ alertMsg }}</p>
+        @if (showPercentage) {
+          <p>{{ percentage | percent }}</p>
+        }
+      </app-alert>
+      }
+
+      <form [formGroup]="uploadFile" (submit)="onSubmit()">
+        <!-- Screenshots -->
+        <h2 class="mb-4 text-xl">یک کاور انتخاب کنید</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+          <div class="border-8 cursor-pointer border-green-400">
+            <img src="assets/img/1.jpg" />
+          </div>
+          <div class="border-8 cursor-pointer border-transparent">
+            <img src="assets/img/2.jpg" />
+          </div>
+          <div class="border-8 cursor-pointer border-transparent">
+            <img src="assets/img/3.jpg" />
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="mt-4">
+          <app-inputs
+            [lable]="'عنوان'"
+            [control]="title"
+            [placeholder]="'عنوان را وارد کنید...'"
+          ></app-inputs>
+        </div>
+
+        <div class="mt-4 text-right">
+          <button
+            type="submit"
+            class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none"
+          >
+            بارگذاری
+          </button>
+        </div>
+      </form>
+    </div>
+    }
+  </div>
+</section>
