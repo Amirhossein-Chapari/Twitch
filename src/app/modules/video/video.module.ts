@@ -10,12 +10,14 @@ import { EventBlockerDirective } from '../../shared/directives/event-blocker.dir
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from "../../shared/shared.module";
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { EditComponent } from '../../video/edit/edit.component';
 
 
 @NgModule({
   declarations: [
     ManageComponent,
-    UploadComponent
+    UploadComponent,
+    EditComponent
   ],
   imports: [
     CommonModule,
